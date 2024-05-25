@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: node-web-service
+  name: node-web-service
+  namespace: test
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: node-web-service
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: node-web-service
+    spec:
+      containers:
+      - image: awsmastercds/node-web-service
+        name: node-web-service
+        resources: {}
+status: {}
